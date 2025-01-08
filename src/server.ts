@@ -7,6 +7,8 @@ import connectDB from "./db/db";
 // Import Route
 import authRoutes from './routes/authRoutes';
 import adminRoute from './routes/adminRoutes';
+import trainerRoute from './routes/trainerRoutes';
+import traineeRoute from './routes/trineeRoutes';
 
 // Configure Dotenv
 dotenv.config();
@@ -27,6 +29,13 @@ app.use('/api/auth', authRoutes);
 // Admin Routes
 app.use('/api/auth', adminRoute);
 
+
+// Trainer Routes  
+app.use('/api/auth', trainerRoute);
+
+
+// Trainee Routes  
+app.use('/api/auth', traineeRoute);
 
 
 app.get("/", (req: Request, res: Response) => {
