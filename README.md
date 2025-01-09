@@ -24,10 +24,15 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 # API Documentation
 
 ### Authentication
+# Admin
+- **POST** `/api/auth/admin-register/`
+  - Body: `{"name": "string", "email": "your email" "password": "string"}`
 
-- **POST** `/api/users/register/`
-  - Body: `{"username": "string", "email": "your email" "password": "string", "first_name": "string", "last_name": "string"}`
- 
+- **POST** `/api/auth/admin-login/`
+  - Body: `{"email": "your email" "password": "string"}`
+
+- **POST** `/api/auth/assign-trainer/`
+  - Body: `{"name": "string" "date": "Date Time", "startTime": "string", "endTime": "string", "trainerEmail": 'string'}`
     
 
 - **POST** `/api/users/login/`
