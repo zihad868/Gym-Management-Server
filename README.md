@@ -54,3 +54,8 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 
 - **POST** `/api/auth//trainee-login`
   - Body: `{"email": "your email" "password": "string"}`
+ 
+  - **POST** `/api/auth/join-class`
+  - Header: `{Authorization:  Bearer  {Your Login Token}}`
+  - Body: `{"classId": "string"}`
+
