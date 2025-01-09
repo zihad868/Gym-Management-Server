@@ -4,6 +4,8 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 #  Live API 
 - https://gym-management-system-gamma-one.vercel.app/
 
+
+
  ## Technology Stack:
   -  Node.js, TypeScript, Express.js, Mongoose, MongoDB, JWT, 
 
@@ -63,3 +65,5 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
   - Header: `{Authorization:  Bearer  {Your Login Token}}`
   - Body: `{"classId": "string"}`
 
+#  ERD
+ - https://drive.google.com/file/d/1BGJ7-5EGDdsT0nX0Rd2E_nBU_pq2zpnt/view?usp=sharing
