@@ -48,8 +48,8 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
   - Header: `{Authorization:  Bearer  {Your Login Token}}`
   - response:  `{"Class Shedule"}`
  
-## Trainer
-  - **POST** `/api/auth//trainee-register`
+## Trainee
+- **POST** `/api/auth/trainee-register`
   - Body: `{"name": "string", "email": "your email" "password": "string"}`
 
 - **POST** `/api/auth//trainee-login`
