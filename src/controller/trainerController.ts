@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Trainer from '../models/Trainer';
+import ClassSchedule from '../models/ClassSchedule';
 
 export const registerTrainer = async (req: Request, res: Response): Promise<void>  => {
   try {
@@ -49,5 +50,23 @@ export const loginTrainer = async (req: Request, res: Response): Promise<void> =
      });
   } catch (error) {
     res.status(500).send('Error logging in');
+  }
+};
+
+
+
+export const viewTrainerSchedules = async (req: Request, res: Response): Promise<void> => {
+  const { email } = (req as any).user; // Extract email from the authenticated token
+
+  try {
+    const schedules = await ClassSchedule.find({ trainer: email });
+
+    res.status(200).json({
+      success: true,
+      message: 'Trainer schedules retrieved successfully',
+      schedules,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error retrieving trainer schedules', error });
   }
 };

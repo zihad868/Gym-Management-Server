@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Trainee from '../models/Trainee';
 
+
 export const registerTrainee = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name, email, password } = req.body;
