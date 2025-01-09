@@ -37,7 +37,7 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 
 
 ## Trainer
-  - **POST** `/api/auth/trainer-register`
+- **POST** `/api/auth/trainer-register`
   - Body: `{"name": "string", "email": "your email" "password": "string", "expertise": "string"}`
 
 - **POST** `/api/auth/trainer-login`
