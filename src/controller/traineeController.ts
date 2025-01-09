@@ -95,3 +95,38 @@ export const joinClass = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ success: false, message: 'Internal server error', error });
   }
 };
+
+
+
+
+export const cancelBooking = async (req: Request, res: Response): Promise<void> => {
+  const { classId } = req.body; // Get the class ID from the request body
+  const { email } = (req as any).user;  // Extract trainee's email from the JWT token
+
+  try {
+    // Find the class schedule
+    const classSchedule = await ClassSchedule.findById(classId);
+    if (!classSchedule) {
+      res.status(404).json({ success: false, message: 'Class schedule not found' });
+      return;
+    }
+
+    // Check if the trainee is part of the class
+    if (!classSchedule.trainees.includes(email)) {
+      res.status(400).json({ success: false, message: 'Trainee not booked in this class' });
+      return;
+    }
+
+    // Remove the trainee from the class
+    classSchedule.trainees = classSchedule.trainees.filter(trainee => trainee !== email);
+    await classSchedule.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'Booking canceled successfully',
+      classSchedule,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal server error', error });
+  }
+};
