@@ -7,4 +7,5 @@ const router = (0, express_1.Router)();
 router.post('/trainee-register', traineeController_1.registerTrainee);
 router.post('/trainee-login', traineeController_1.loginTrainee);
 router.post('/join-class', middleware_1.authenticate, traineeController_1.joinClass);
+router.post('/cancel-booking', middleware_1.authenticate, traineeController_1.cancelBooking);
 exports.default = router;
