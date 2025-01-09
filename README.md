@@ -32,6 +32,7 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
   - Body: `{"email": "your email" "password": "string"}`
 
 - **POST** `/api/auth/assign-trainer/`
+  - Header: `{Authorization:  Bearer  {Your Login Token}}`
   - Body: `{"name": "string" "date": "Date Time", "startTime": "string", "endTime": "string", "trainerEmail": 'string'}`
 
   
