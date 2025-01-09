@@ -23,10 +23,7 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 - npm install
 - npm run dev
 
-
-# API Documentation
-
-# Authentication
+# API Endpoints 
 ## Admin
 - **POST** `/api/auth/admin-register`
   - Body: `{"name": "string", "email": "your email" "password": "string"}`
