@@ -15,7 +15,10 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
   
 
 ## Clone and Run Local Manually 
-
+- git clone https://github.com/zihad868/Gym-Management-Server.git
+- cd Gym-Management-Server
+- npm install
+- npm run dev
 
 
 # API Documentation
