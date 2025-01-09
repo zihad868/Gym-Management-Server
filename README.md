@@ -6,14 +6,19 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 
   
   ## Features
-- User Management: Register, log in, retrieve, update, and delete user accounts.
-- Project Management: Create, list, update, and delete projects with owner and member roles.
-- Task Management: CRUD operations on tasks within projects with priority and status tracking.
-- Comment Management: Commenting on tasks with retrieval, updates, and deletions.
+- User Management: Register, login  for Admins, Trainers, and Trainees with role-based access control.
+- Class Scheduling: Admins can create class schedules while enforcing rules such as a maximum of five schedules per day, with each class lasting two hours.
+- Trainer Management: Can view assigning them to specific class schedules.
+- Trainee Management: Trainees can join and cancel class schedules
+- Authentication and Authorization: JWT-based secure authentication with role-specific permissions to prevent unauthorized access.
+
   
 
 ## Clone and Run Local Manually 
-
+- git clone https://github.com/zihad868/Gym-Management-Server.git
+- cd Gym-Management-Server
+- npm install
+- npm run dev
 
 
 # API Documentation
