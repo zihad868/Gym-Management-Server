@@ -52,3 +52,46 @@ export const loginTrainee = async (req: Request, res: Response): Promise<void> =
     res.status(500).send('Error logging in');
   }
 };
+
+
+
+import ClassSchedule from '../models/ClassSchedule';
+
+
+export const joinClass = async (req: Request, res: Response): Promise<void> => {
+  const { classId } = req.body; // classId from the request body
+  const { email } = (req as any).user;  // email extracted from the JWT token
+
+  try {
+    // Find the class schedule
+    const classSchedule = await ClassSchedule.findById(classId);
+    if (!classSchedule) {
+      res.status(404).json({ success: false, message: 'Class schedule not found' });
+      return;
+    }
+
+    // Check if the trainee is already added
+    if (classSchedule.trainees.includes(email)) {
+      res.status(400).json({ success: false, message: 'Trainee already joined the class' });
+      return;
+    }
+
+    // Check if the class has room
+    if (classSchedule.trainees.length >= 10) {
+      res.status(400).json({ success: false, message: 'Class is full' });
+      return;
+    }
+
+    // Add the trainee to the class
+    classSchedule.trainees.push(email);
+    await classSchedule.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'Trainee successfully joined the class',
+      classSchedule,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal server error', error });
+  }
+};
