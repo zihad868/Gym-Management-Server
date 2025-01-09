@@ -4,7 +4,10 @@ The Gym Class Scheduling and Membership Management System is a robust applicatio
 #  Live API 
 - https://gym-management-system-gamma-one.vercel.app/
 
-  
+ ## Technology Stack:
+  -  Node.js, TypeScript, Express.js, Mongoose, MongoDB, JWT, 
+
+    
   ## Features
 - User Management: Register, login  for Admins, Trainers, and Trainees with role-based access control.
 - Class Scheduling: Admins can create class schedules while enforcing rules such as a maximum of five schedules per day, with each class lasting two hours.
