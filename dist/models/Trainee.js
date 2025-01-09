@@ -9,6 +9,6 @@ const TraineeSchema = new mongoose_1.default.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     profile: { type: String },
-});
-const Trainee = mongoose_1.default.model('Trainee', TraineeSchema);
+}, { timestamps: true });
+const Trainee = mongoose_1.default.model("Trainee", TraineeSchema);
 exports.default = Trainee;

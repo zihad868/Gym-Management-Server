@@ -9,6 +9,8 @@ const db_1 = __importDefault(require("./db/db"));
 // Import Route
 const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
 const adminRoutes_1 = __importDefault(require("./routes/adminRoutes"));
+const trainerRoutes_1 = __importDefault(require("./routes/trainerRoutes"));
+const trineeRoutes_1 = __importDefault(require("./routes/trineeRoutes"));
 // Configure Dotenv
 dotenv_1.default.config();
 (0, db_1.default)();
@@ -20,6 +22,10 @@ app.use(express_1.default.json());
 app.use('/api/auth', authRoutes_1.default);
 // Admin Routes
 app.use('/api/auth', adminRoutes_1.default);
+// Trainer Routes  
+app.use('/api/auth', trainerRoutes_1.default);
+// Trainee Routes  
+app.use('/api/auth', trineeRoutes_1.default);
 app.get("/", (req, res) => {
     res.send("Gym Sever is running");
 });

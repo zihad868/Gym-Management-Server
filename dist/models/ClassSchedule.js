@@ -4,12 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const ClassScheduleSchema = new mongoose_1.default.Schema({
+const classScheduleSchema = new mongoose_1.default.Schema({
+    name: { type: String, required: true },
     date: { type: Date, required: true },
-    time: { type: String, required: true },
-    trainer: { type: mongoose_1.default.Schema.Types.ObjectId, ref: 'Trainer', required: true },
-    maxTrainees: { type: Number, default: 10 },
-    trainees: [{ type: mongoose_1.default.Schema.Types.ObjectId, ref: 'Trainee' }],
-});
-const ClassSchedule = mongoose_1.default.model('ClassSchedule', ClassScheduleSchema);
-exports.default = ClassSchedule;
+    startTime: { type: String, required: true },
+    endTime: { type: String, required: true },
+    trainer: { type: String, ref: 'Trainer', required: true }, // Storing trainer email
+    trainees: [{ type: String, ref: 'Trainee' }], // Storing trainee emails
+}, { timestamps: true });
+exports.default = mongoose_1.default.model('ClassSchedule', classScheduleSchema);

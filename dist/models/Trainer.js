@@ -9,6 +9,6 @@ const TrainerSchema = new mongoose_1.default.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     expertise: { type: String, required: true },
-});
+}, { timestamps: true });
 const Trainer = mongoose_1.default.model('Trainer', TrainerSchema);
 exports.default = Trainer;

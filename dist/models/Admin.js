@@ -8,6 +8,6 @@ const AdminSchema = new mongoose_1.default.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-});
+}, { timestamps: true });
 const Admin = mongoose_1.default.model('Admin', AdminSchema);
 exports.default = Admin;
