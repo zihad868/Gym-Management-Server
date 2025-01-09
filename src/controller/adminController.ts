@@ -49,3 +49,45 @@ export const loginAdmin = async (req: Request, res: Response): Promise<void>  =>
     res.status(500).send('Error logging in');
   }
 };
+
+
+import ClassSchedule from '../models/ClassSchedule';
+import Trainer from '../models/Trainer';
+
+export const createClassSchedule = async (req: Request, res: Response): Promise<void> => {
+  const { name, date, startTime, endTime, trainerEmail } = req.body;
+
+  try {
+    // Check if the trainer exists
+    const trainer = await Trainer.findOne({ email: trainerEmail });
+    if (!trainer) {
+      res.status(404).json({ message: 'Trainer not found' });
+      return;
+    }
+
+    // Check if there are already 5 classes scheduled for the day
+    const existingSchedules = await ClassSchedule.find({ date });
+    if (existingSchedules.length >= 5) {
+      res.status(400).json({ message: 'Cannot schedule more than 5 classes in a day' });
+      return;
+    }
+
+    // Create a new class schedule
+    const newClassSchedule = new ClassSchedule({
+      name,
+      date,
+      startTime,
+      endTime,
+      trainer: trainerEmail,
+    });
+
+    await newClassSchedule.save();
+
+    res.status(201).json({
+      message: 'Class schedule created successfully',
+      classSchedule: newClassSchedule,
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error });
+  }
+};
